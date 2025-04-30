@@ -1,0 +1,16 @@
+/* style.css */
+body {
+          font-family: 'Segoe UI', sans-serif;
+          background-color: #121212;
+        }
+        
+        .card {
+          background-color: #f8f9fa;
+          border-radius: 1rem;
+          box-shadow: 0 0 10px rgba(0,0,0,0.2);
+        }
+        
+        .fw-bold {
+          color: #007bff;
+        }
+        
