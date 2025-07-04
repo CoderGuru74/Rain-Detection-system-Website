@@ -1,35 +1,61 @@
-<!-- index.html -->
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Rain Detection System</title>
-  <link rel="stylesheet" href="/style.css">
-  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
-  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Rain Detection & Automation System</title>
+  <link rel="stylesheet" href="style.css" />
+  <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@400;600&display=swap" rel="stylesheet">
 </head>
-<body class="bg-dark text-white">
-  <div class="container py-4">
-    <h1 class="text-center mb-4">🌧️ Rain Detection Dashboard</h1>
+<body>
+  <div class="rain-background"></div>
 
-    <div class="card text-dark mb-4">
-      <div class="card-body">
-        <h5 class="card-title">System Status</h5>
-        <p>Rain Status: <span id="rainStatus" class="fw-bold">Checking...</span></p>
-        <p>Light: <span id="lightStatus" class="fw-bold">Off</span></p>
-        <p>Servo Position: <span id="servoStatus" class="fw-bold">0°</span></p>
-      </div>
+  <!-- Background Rain Sound -->
+  <audio id="rainSound" src="sounds/rain.mp3" preload="auto"></audio>
+
+
+
+
+
+  <header class="glass">
+    <h1>🌧️ Rain Detection & Automation System</h1>
+    <button class="btn-blue" onclick="toggleDark()">Toggle Dark Mode</button>
+  </header>
+
+  <div class="container glass">
+    <div class="grid">
+      <div class="card"><strong>🌦 Rain Status</strong><br><span id="rainStatus" class="blue-text">Detecting...</span></div>
+      <div class="card"><strong>🌡 Temperature</strong><br><span id="temp" class="red-text">-- °C</span></div>
+      <div class="card"><strong>💧 Humidity</strong><br><span id="humidity" class="green-text">-- %</span></div>
+      <div class="card"><strong>⏰ Last Updated</strong><br><span id="updated">--:--</span></div>
     </div>
 
-    <div class="card text-dark mb-4">
-      <div class="card-body">
-        <h5 class="card-title">Rain Data Graph</h5>
-        <canvas id="rainChart" height="100"></canvas>
+    <div class="grid">
+      <div class="card controls">
+         <strong>⚙️ Controls</strong><br><br>
+         <button class="btn-blue" id="toggleServoBtn">Toggle Servo</button>
+         <button class="btn-yellow" id="toggleLightBtn">Toggle Light</button>
+         <button class="btn-red" onclick="resetServoAuto()">Auto Servo Mode</button>
+
       </div>
+
+      <div class="card logs">
+        <strong>📄 Logs & Export</strong><br><br>
+        <button class="btn-green">Export Logs</button>
+        <button class="btn-blue" onclick="downloadLogs()">Download Logs</button><br><br>
+        
+        <textarea readonly>Logs will appear here...</textarea>
+      </div>
+
+    </div>
+
+    <div class="chart-container">
+      <strong>📊 Rain Trend Graph</strong><br><br>
+      <canvas id="rainChart" width="600" height="200"></canvas>
     </div>
   </div>
 
-  <script src="/script.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="script.js"></script>
 </body>
 </html>

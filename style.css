@@ -1,16 +1,127 @@
-/* style.css */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
 body {
-          font-family: 'Segoe UI', sans-serif;
-          background-color: #121212;
-        }
-        
-        .card {
-          background-color: #f8f9fa;
-          border-radius: 1rem;
-          box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        }
-        
-        .fw-bold {
-          color: #007bff;
-        }
-        
+  font-family: 'Outfit', sans-serif;
+  background-color: #0f172a;
+  color: white;
+  overflow-x: hidden;
+  position: relative;
+}
+
+/* Glass effect */
+.glass {
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 16px;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  box-shadow: 0 4px 30px rgba(0, 0, 0, 0.2);
+}
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  margin: 1rem;
+}
+
+.container {
+  padding: 2rem;
+  margin: 1rem;
+  display: grid;
+  gap: 1.5rem;
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1rem;
+}
+
+.card {
+  background-color: rgba(30, 41, 59, 0.85);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+  transition: transform 0.2s ease;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.controls button,
+.logs button {
+  padding: 0.6rem 1.2rem;
+  border: none;
+  border-radius: 0.5rem;
+  margin-right: 0.5rem;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.btn-blue {
+  background-color: #3b82f6;
+  color: white;
+}
+
+.btn-yellow {
+  background-color: #facc15;
+  color: black;
+}
+
+.btn-green {
+  background-color: #22c55e;
+  color: white;
+}
+
+.logs textarea {
+  width: 100%;
+  height: 100px;
+  margin-top: 0.5rem;
+  background-color: #334155;
+  border: none;
+  border-radius: 0.5rem;
+  color: white;
+  padding: 0.5rem;
+  resize: none;
+}
+
+.chart-container {
+  background-color: rgba(30, 41, 59, 0.85);
+  padding: 1rem;
+  border-radius: 1rem;
+  box-shadow: 0 8px 20px rgba(0, 0, 0, 0.4);
+}
+/* Make logs card buttons stack nicely */
+.card.logs button {
+  margin-bottom: 0.5rem;
+  display: block;
+  width: 100%;
+}
+
+/* Improve textarea appearance */
+.logs textarea {
+  width: 100%;
+  height: 150px;
+  margin-top: 0.5rem;
+  background-color: #1e293b;
+  border: none;
+  border-radius: 0.5rem;
+  color: #f1f5f9;
+  font-family: monospace;
+  padding: 0.75rem;
+  resize: vertical;
+  box-shadow: inset 0 0 5px rgba(0,0,0,0.5);
+}
+
+/* Add hover effects for log buttons */
+.card.logs button:hover {
+  opacity: 0.9;
+  transform: scale(1.01);
+}
+
